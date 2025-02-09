@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from aymane-essa.netlify.app/in11 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Feb 2025 19:38:40 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-adsense-account" content="ca-pub-9734033165397708">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="logo.png">
+    <title>AymanToolbox</title>
+    <script async src="../pagead2.googlesyndication.com/pagead/js/f6fe2.txt?client=ca-pub-9734033165397708"
+     crossorigin="anonymous"></script>
+    <style>
+        *{
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: deepskyblue;
+        }
+
+        .totaldifference {
+            font-weight: bold;
+        }
+        .totalretraits {
+            background-color: aqua;
+            width: 300px;
+            height: 80px;
+            border-radius: 30px;
+            margin: 10px;
+        }
+        .nombrerecu {
+            background-color: aqua;
+            width: 300px;
+            height: 80px;
+            border-radius: 30px;
+            margin: 10px;
+        }
+        .totalfrais  {
+            color: red;
+            background-color: aqua;
+            width: 300px;
+            height: 80px;
+            border-radius: 30px;
+            margin: 10px;
+        }
+        .pureTotal .totalfrais .nombrerecu .totalretraits .totaldifference{
+            background-color: aqua;
+            width: 300px;
+            height: 80px;
+            border-radius: 30px;
+            margin: 10px;
+            position: absolute;
+            bottom: 0;
+        }
+        .pureTotal {
+            background-color: orange;
+            width: 300px;
+            height: 80px;
+            border-radius: 30px;
+            margin: 10px;
+            color: white;
+            font-weight: 900;
+            font-size: 20px;
+            padding: 10px;
+
+        }
+
+        /* Flex container for resultDiv */
+        
+        a{
+           padding: 15px 30px;
+            color: white;
+            background-color:;
+            text-align: center;
+            position: relative;
+            top: 20px;
+            text-decoration: none;
+            border-radius: 30px;
+            left: 0px;
+
+        }
+        input[type="file"] {
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+            button{
+                padding: 15px 30px;
+            color: white;
+            background-color: #3498db;
+            text-align: center;
+            top: 20px;
+            text-decoration: none;
+            border: none    ; 
+            border-radius: 30px;
+
+            }
+            nav {
+                position: absolute;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            background-color: #ecf0f1;
+            padding: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-left: 20px;
+            margin-bottom: 40px;
+            padding: 10px;
+        }
+
+        nav a:hover {
+            background-color: #bdc3c7;
+        }
+        nav img{
+            width: 80px;
+            height: 80px;
+            margin-left: 20px;
+        }
+        .container{
+            margin-top: 150px;
+        }
+        .elements{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .color-changing-button {
+  background-color: deepskyblueblue;
+  animation:colorChange ;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+
+.color-changing-button:hover {
+  background-color: yellowgreen;
+}
+
+@keyframes colorChange {
+  0% {
+    background-color: deepskyblue;
+  }
+  50% {
+    background-color: teal;
+  }
+  100% {
+    background-color: deepskyblue;
+  }
+}
+
+.color-changing-button.animated {
+  animation: colorChange 2s infinite;
+}
+img{
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <script async src="../pagead2.googlesyndication.com/pagead/js/f6fe2.txt?client=ca-pub-9734033165397708"
+     crossorigin="anonymous"></script>
+    <nav>
+        <img src="logo.png" alt="">
+        <a href='index.html'>Home</a>
+        <a href='learning.html'>A propos</a>
+       <a class="active" href="https://wa.me/212760834914">Contact Us</a>
+    </nav>
+    <div class="container">
+        <div class="elements">
+    <!-- Input elements for selecting HTML files -->
+    <input type="file" id="fileInput1" accept=".html">
+    <input type="file" id="fileInput2" accept=".html">
+    <input type="file" id="fileInput3" accept=".html">
+    <input type="file" id="fileInput4" accept=".html">
+    <input type="file" id="fileInput5" accept=".html">
+    <input type="file" id="fileInput6" accept=".html">
+
+    <!-- Button to trigger file processing -->
+    <br>
+    <button onclick="processFiles()" class="color-changing-button">Calculer la différence et la somme</button>
+</div>
+    <!-- Display area for the processing result -->
+    <div class="result-container">
+        <div id="result" class="alltotal"></div>
+        <div id="resultTotalRetraits" class="totalretraits"></div>
+        <div id="resultNombrerecu" class="nombrerecu"></div>
+        <div id="resultTotalFrais" class="totalfrais"></div>
+        <div id="pureTotal" class="pureTotal"></div>
+    </div>
+    <script async src="../pagead2.googlesyndication.com/pagead/js/f6fe2.txt?client=ca-pub-9734033165397708"
+     crossorigin="anonymous"></script>
+    </div>
+    <script>
+        // Asynchronous function to process selected files
+        async function processFiles() {
+            var resultDiv = document.getElementById('result');
+            var resultTotalRetraitsDiv = document.getElementById('resultTotalRetraits');
+            var resultNombrerecuDiv = document.getElementById('resultNombrerecu');
+            var resultTotalFraisDiv = document.getElementById('resultTotalFrais');
+            var pureTotal = document.getElementById('pureTotal');
+
+            var totalFilesValue = 0;
+            var totalRetraitAgence = 0;
+            var totalRetraitAgenceRows = 0;
+            var totalDifferenceWithoutFrais = 0;
+            var resultForAllFiles = '<table>';
+            resultForAllFiles += '<tr><th>Fichier</th><th>Données</th></tr>';
+
+            for (var i = 1; i <= 6; i++) {
+                var resultForFile = await processFile(i);
+                resultForAllFiles += `<tr><td>${i}</td><td>${resultForFile}</td></tr>`;
+
+                var match = /Total Difference: (\d+)/.exec(resultForFile);
+                if (match) {
+                    var fileDifference = parseInt(match[1], 10);
+                    totalFilesValue += fileDifference;
+                }
+
+                var retraitMatches = resultForFile.match(/Retrait espece agence.*?(\d+)/g);
+                if (retraitMatches) {
+                    retraitMatches.forEach(match => {
+                        var value = parseInt(match.match(/\d+/)[0]);
+                        totalRetraitAgence += value;
+                        totalRetraitAgenceRows++;
+                    });
+                }
+
+                var differenceWithoutFraisMatches = resultForFile.match(/Difference: (\d+)/g);
+                if (differenceWithoutFraisMatches) {
+                    differenceWithoutFraisMatches.forEach(match => {
+                        var value = parseInt(match.match(/\d+/)[0]);
+                        totalDifferenceWithoutFrais += value;
+                    });
+                }
+            }
+
+            resultForAllFiles += '</table>';
+            resultDiv.innerHTML = resultForAllFiles ;
+            resultTotalRetraitsDiv.innerHTML = '<div class="totalretraits">Total de Retraits de tous les fichiers: ' + totalRetraitAgence + '</div>';
+            resultNombrerecuDiv.innerHTML = '<div class="nombrerecu">Le nombre des reçus de tous les fichiers: ' + totalRetraitAgenceRows + '</div>';
+            resultTotalFraisDiv.innerHTML = '<div class="totalfrais">Total des frais : ' + all + '</div>';
+            pureTotal.innerHTML = '<div class="alltotal">Total final : <span class="totaldifference">' + (totalRetraitAgence - all) + '</span></div>';
+        }
+
+        async function processFile(fileNumber) {
+            var fileInput = document.getElementById('fileInput' + fileNumber);
+            var resultForFile = '';
+
+            if (fileInput.files.length > 0) {
+                var file = fileInput.files[0];
+                var reader = new FileReader();
+
+                await new Promise((resolve) => {
+                    reader.onload = function (e) {
+                        var content = e.target.result;
+                        resultForFile = calculateDifferenceAndSum(content);
+                        resolve();
+                    };
+
+                    reader.readAsText(file);
+                });
+            } else {
+                resultForFile = 'Aucun fichier sélectionné.';
+            }
+
+            return resultForFile;
+        }
+
+        var all = 0;
+        var all2 = 0;
+
+        function calculateDifferenceAndSum(htmlContent) {
+            var regex = /<td class="at-table__cell">\s*Retrait espece agence\s*<\/td>\s*<td class="at-table__cell"><div><div style="text-align: right; font-weight: 600; min-width: 90px;">(\d+)<\/div><\/div><\/td>\s*<td class="at-table__cell">[\s\S]*?<\/td>\s*<td class="at-table__cell">\s*(\d+)\s*<\/td>/g;
+
+            var matches = Array.from(htmlContent.matchAll(regex));
+            var totalDifference = 0;
+            var output = '<table>';
+            output += '<tr><th>Ligne</th><th>Premier Nombre</th><th>Frais</th><th>Différence</th></tr>';
+
+            for (var match of matches) {
+                var firstNumber = parseInt(match[1], 10);
+                var secondNumber = parseInt(match[2], 10);
+                all += secondNumber;
+
+                if (secondNumber <= firstNumber) {
+                    var difference = firstNumber - secondNumber;
+                    totalDifference += difference;
+                    all2 += difference;
+
+                    output += `<tr><td>Retrait espece agence</td><td>${firstNumber}</td><td>${secondNumber}</td><td>${difference}</td></tr>`;
+                } else {
+                    return 'Erreur : Le deuxième nombre est plus grand que le premier dans certaines lignes.';
+                }
+            }
+
+            output += `<tr class="totaldifference"><td colspan="3">Total de différence</td><td>${totalDifference}</td></tr></table>`;
+            return output;
+        }
+    </script>
+</body>
+
+<!-- Mirrored from aymane-essa.netlify.app/in11 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Feb 2025 19:38:40 GMT -->
+</html>

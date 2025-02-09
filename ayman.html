@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html dir="ltr">
+
+<!-- Mirrored from aymane-essa.netlify.app/ayman by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Feb 2025 19:38:39 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta name="google-adsense-account" content="ca-pub-9734033165397708">
+    <title>AymanToolbox</title>
+    <link rel="icon" type="image/x-icon" href="logo.png">
+
+    <link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <script async src="../pagead2.googlesyndication.com/pagead/js/f6fe2.txt?client=ca-pub-9734033165397708"
+    crossorigin="anonymous"></script>
+    <style>
+        *{
+           font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        body {
+            width: 100%;
+        }
+        input[type="file"] {
+        }
+        label:hover {
+            background-color: green;
+        }
+        label {
+            display: inline-block;
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: large;
+        }
+        p {
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #3498db;
+            color: #fff;
+            font-weight: bold;
+            font-size: large;
+        }
+        p{
+            font-weight: 900;
+            font-size: 30px;
+        }
+        label{
+            font-weight: bold;
+            font-size: large;
+        }
+        .prix{
+            background-color: red;
+        }
+        
+        .h1{
+            display: flex;
+            justify-content: center;
+        }
+        button:hover{
+            background-color: green;
+        }
+        img{
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        footer{
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            background-color: teal;
+            width: 100%;
+            color: white;
+            /* font-size: 30px; */
+            /* text-align: center; */
+            height: 100px;
+        }
+        .container{
+            /* height: 150vh; */
+            width: 100%;
+            margin-top: 150px;
+        }
+        .total{
+            margin-bottom: 200px;
+        }
+        .prix2{
+        background-color: greenyellow;
+        font-size: 20px;
+        }
+        /* a{
+           padding: 15px 30px;
+            color: white;
+            background-color: #3498db;
+            text-align: center;
+            position: absolute;
+            top: 20px;
+            text-decoration: none;
+            border-radius: 30px;
+            left: 10px;
+
+        } */
+        footer span{
+            position: relative;
+            top: 50px;
+            float: right;
+        }
+        nav {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            background-color: #ecf0f1;
+            padding: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #bdc3c7;
+        }
+        nav img{
+            width: 80px;
+            height: 80px;
+            margin-left: 20px;
+        }
+        img{
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <script async src="../pagead2.googlesyndication.com/pagead/js/f6fe2.txt?client=ca-pub-9734033165397708"
+     crossorigin="anonymous"></script>
+    <nav>
+        <img src="logo.png" alt="">
+        <a href='index.html'>Home</a>
+        <a href='learning.html'>A propos</a>
+        <a class="active" href="https://wa.me/212760834914">Contact Us</a>
+    </nav>
+    <div class="container">
+    <div class="h1">
+        <!-- <a href="index.htm">menu</a> -->
+    </div>
+    <label for="csvFileInput">Choisissez le fichier</label>
+    <input type="file" id="csvFileInput" accept=".csv">
+    <button onclick="convertCSVtoJSON()">Calculer</button>
+
+    <p>Les données :</p>
+    <table id="jsonTable">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Téléphone</th>
+                <th>Opérateur</th>
+                <th>Produit</th>
+                <th class="prix">Montant</th>
+            </tr>
+        </thead>
+        <tbody id="jsonTableBody">
+        </tbody>
+    </table>
+    <p class="total">Total : &nbsp;<span id="totalAmount">0&nbsp;</span>&nbsp;DH&nbsp; &nbsp; </p>
+    <footer><span>Développé par essaid Ayman</span></footer>
+   </div>
+   <script async src="../pagead2.googlesyndication.com/pagead/js/f6fe2.txt?client=ca-pub-9734033165397708"
+     crossorigin="anonymous"></script>
+    <script>
+        function convertCSVtoJSON() {
+            const csvFileInput = document.getElementById('csvFileInput');
+            const file = csvFileInput.files[0];
+
+            if (!file) {
+                alert('Veuillez choisir le fichier !');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const csvText = event.target.result;
+
+                Papa.parse(csvText, {
+                    header: true,
+                    dynamicTyping: true,
+                    skipEmptyLines: true,
+                    complete: function(results) {
+                        const jsonData = results.data;
+
+                        // Filter out duplicate rows based on specific columns
+                        const uniqueEntries = new Set();
+                        const filteredData = [];
+                        let totalAmount = 0;
+
+                        jsonData.forEach(item => {
+                            const key = `${item.Date}-${item.Telephone}-${item.Operateur}-${item.Product}-${item.Amount}`;
+                            if (!uniqueEntries.has(key)) {
+                                uniqueEntries.add(key);
+                                filteredData.push(item);
+                                totalAmount += item.Amount || 0;
+                            }
+                        });
+
+                        // Display the filtered data in the table
+                        const jsonTableBody = document.getElementById('jsonTableBody');
+                        jsonTableBody.innerHTML = '';
+
+                        filteredData.forEach(item => {
+                            const row = document.createElement('tr');
+                            row.innerHTML = `
+                                <td>${item.Date}</td>
+                                <td>${item.Telephone}</td>
+                                <td>${item.Operateur}</td>
+                                <td>${item.Product}</td>
+                                <td class='prix2'>${item.Amount} Dirham</td>
+                            `;
+                            jsonTableBody.appendChild(row);
+                        });
+
+                        // Display the total amount on the page
+                        document.getElementById('totalAmount').textContent = totalAmount;
+                    },
+                });
+            };
+
+            reader.readAsText(file);
+        }
+    </script>
+</body>
+
+<!-- Mirrored from aymane-essa.netlify.app/ayman by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Feb 2025 19:38:40 GMT -->
+</html>
